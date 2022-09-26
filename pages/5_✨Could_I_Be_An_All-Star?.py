@@ -24,8 +24,8 @@ with st.form(key ='Form1'):
     with st.sidebar:
         points_range = list(np.arange(0.0, 50.5, 0.5))
         points = st.slider('Points Per Game', min_value = float(0.0), max_value = float(50.0), step = float(0.1))
-        assists = st.slider('Assists Per Game', min_value = float(0.0), max_value = float(20.0), step = float(0.1))
         rebounds = st.slider('Rebounds Per Game', min_value = float(0.0), max_value = float(20.0), step = float(0.1))
+        assists = st.slider('Assists Per Game', min_value = float(0.0), max_value = float(20.0), step = float(0.1))     
         steals = st.slider('Steals Per Game', min_value = float(0.0), max_value = float(5.0), step = float(0.1))
         blocks = st.slider('Blocks Per Game', min_value = float(0.0), max_value = float(5.0), step = float(0.1))
         record = st.slider('Team Record', min_value = float(0.0), max_value = float(1), step = float(0.05))
@@ -45,7 +45,7 @@ output_column = 'Allstar'
 y = list(training[output_column])
 x = training.loc[:,training_columns]
 
-x_pred = np.array(points, rebounds, assists, steals, blocks, record)
+x_pred = np.array(float(points), float(rebounds, float(assists), float(steals), float(blocks), float(record))
 
 
 
