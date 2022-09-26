@@ -17,21 +17,21 @@ rookie, second year player, or multi-year veteran.
 st.sidebar.header('User Selection')
 
 # Sidebar - Name Selection
-sorted_players_unique = list(df['Player Name'].unique())
+sorted_players_unique = list(df['Name'].unique())
 sorted_players_unique = sorted(sorted_players_unique)
 sorted_players_unique.insert(0,'All Players')
 selected_player = st.sidebar.selectbox('Which player would you like to see?',
     sorted_players_unique) 
 
 # Sidebar - Team Selection
-sorted_team_unique = list(df['Player Team'].unique())
+sorted_team_unique = list(df['Team'].unique())
 sorted_team_unique = sorted(sorted_team_unique)
 sorted_team_unique.insert(0,'All Teams')
 selected_team = st.sidebar.selectbox('Which team would you like to see?',
     sorted_team_unique)
 
 # Sidebar - Position Selection
-sorted_position_unique = list(df['Player Position'].unique())
+sorted_position_unique = list(df['Position'].unique())
 sorted_position_unique = sorted(sorted_position_unique)
 sorted_position_unique.insert(0,'All Positions')
 selected_position = st.sidebar.selectbox('Which position would you like to see?',
