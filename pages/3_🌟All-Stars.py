@@ -12,7 +12,7 @@ st.title('All-Star Predictions')
 st.markdown("""
 Expected team record and individual stats have been used to determine each player's likelihood of making the 2023 All-Star game.
 Each conference is only allowed 12 players; however, replacements can be made in case of an injury. The 20 most likely players
-and their respective probabilities are shown on this page.
+in each conference and their respective probabilities are shown on this page.
 """)
 
 #rows = st.columns(2)
