@@ -18,7 +18,7 @@ st.dataframe(allstar_data)
 
 with st.form(key ='Form1'):
     with st.sidebar:
-        points_range = np.arange(0.0, 50.5, 0.5)
+        points_range = list(np.arange(0.0, 50.5, 0.5))
         points = st.select_slider('Points Per Game', options = point_range, value = 15)
         assists = st.number_input('Assists Per Game', 100)
         rebounds = st.number_input('Rebounds Per Game', 100)
