@@ -18,7 +18,7 @@ st.dataframe(allstar_data)
 
 with st.form(key ='Form1'):
     with st.sidebar:
-        points = st.number_input('Points Per Game', 100)   
+        points = st.number_input('Points Per Game', min_value=0.0, max_value=50.0, step=0.01, format="%.5f"))   
         assists = st.number_input('Assists Per Game', 100)
         rebounds = st.number_input('Rebounds Per Game', 100)
         steals = st.number_input('Steals Per Game', 100)
