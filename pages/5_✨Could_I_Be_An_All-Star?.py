@@ -44,7 +44,7 @@ output_column = 'Allstar'
 y = list(training[output_column])
 x = training.loc[:,training_columns]
 st.write(points)
-x_pred = np.array(float(points), float(rebounds, float(assists), float(steals), float(blocks), float(record))
+#x_pred = np.array(float(points), float(rebounds, float(assists), float(steals), float(blocks), float(record))
 
 
 
