@@ -8,7 +8,7 @@ mvps = pd.read_csv('Data/v1_mvp_predictions.csv').drop(['Unnamed: 0'], axis = 1)
 dpoy = pd.read_csv('Data/v1_dpoy_predictions.csv').drop(['Unnamed: 0'], axis = 1)
 roys = pd.read_csv('Data/v1_roy_predictions.csv').drop(['Unnamed: 0'], axis = 1)
  
-st.title('Team Standings Predictions')
+st.title('Award Winners Predictions')
 
 st.markdown("""
 Additional models have been run to assign each player's likelihood of winning the league's Most Valuable Player (MVP), Defensive Player of the Year (DPOY),
