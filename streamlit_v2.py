@@ -4,7 +4,7 @@ import pandas as pd
 #import matplotlib.pyplot as plt
 import numpy as np
 
-df = pd.read_csv('Data/v1_2023_player_predictions.csv'drop(['Unnamed: 0'], axis = 1).sort_values('Fantasy Score', ascending = False)
+df = pd.read_csv('Data/v1_2023_player_predictions.csv').drop(['Unnamed: 0'], axis = 1).sort_values('Fantasy Score', ascending = False)
  
 st.title('2022-2023 NBA Fantasy Score Predictions')
 
