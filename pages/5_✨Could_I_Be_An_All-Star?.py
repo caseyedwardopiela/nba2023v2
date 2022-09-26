@@ -4,6 +4,10 @@ import pandas as pd
 #import matplotlib.pyplot as plt
 import numpy as np
 
+from sklearn.linear_model import LogisticRegression
+from sklearn.ensemble import RandomForestClassifier
+import xgboost as xgb
+
 allstar_data = pd.read_csv('Data/raw_data_for_allstars.csv').drop(['Unnamed: 0'], axis = 1)
  
 st.title('Customized All-Star Predictions')
@@ -14,8 +18,7 @@ is to be an All-Star. You can input your own stats here for your favorite player
 to make the All-Star game based on your own beliefs.
 """)
 
-st.dataframe(allstar_data)
- 
+# User Input
 with st.form(key ='Form1'):
     with st.sidebar:
         points_range = list(np.arange(0.0, 50.5, 0.5))
@@ -27,4 +30,55 @@ with st.form(key ='Form1'):
         record = st.slider('Team Record', min_value = float(0.0), max_value = float(1), step = float(0.05))
         submitted = st.form_submit_button(label = 'Determine All-Star Likelihood')
 
-st.write(record)
+
+# Modeling
+
+# Separate Data
+training = award_raw_data[award_raw_data['Season'] < 2023]
+
+# Determine which columns to use
+training_columns = list(training.columns)[3:9]
+output_column = 'Allstar'
+
+# Run Models
+y = list(training[output_column])
+x = training.loc[:,training_columns]
+
+x_pred = [points, rebounds, assists, steals, blocks, record]
+
+
+
+# Random Forest
+rf_allstar = RandomForestClassifier(n_estimators=200, criterion='gini', \
+                                max_depth=20, min_samples_split=2, min_samples_leaf=1, \
+                                min_weight_fraction_leaf=0.0, max_features=1.0, \
+                                max_leaf_nodes=None, min_impurity_decrease=0.0, \
+                                bootstrap=True, oob_score=False, n_jobs=-1, \
+                                random_state=None, verbose=0, warm_start=False, \
+                                ccp_alpha=0.0, max_samples=None)
+
+rf_allstar.fit(x, y)
+
+rf_allstar_results = rf_allstar.predict_proba(x_pred)
+rf_allstar_results = [i[1] for i in rf_allstar_results]
+
+# XGBoost
+xgb_allstar = xgb.XGBClassifier(gamma=10, learning_rate=0.1, max_delta_step=0, max_depth=50, objective='binary:logistic')
+
+xgb_allstar.fit(x, y)
+
+xgb_allstar_results = xgb_allstar.predict_proba(x_pred)
+xgb_allstar_results = [i[1] for i in xgb_allstar_results]
+
+# Logistic
+logistic_allstar = LogisticRegression()
+
+logistic_allstar.fit(x, y)
+
+logistic_allstar_results = logistic_allstar.predict_proba(x_pred)
+logistic_allstar_results = [i[1] for i in logistic_allstar_results]
+
+allstar_prediction = round((rf_allstar_results + xgb_allstar_results + logistic_allstar_results) / 3, 3)
+
+st.write('The likelihood of your player making the NBA All-Star Game Roster is: ', allstar_prediction)
+
