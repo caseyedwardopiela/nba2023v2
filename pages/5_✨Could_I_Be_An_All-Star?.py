@@ -15,7 +15,7 @@ to make the All-Star game based on your own beliefs.
 """)
 
 st.dataframe(allstar_data)
-y = st.slider('Points Per Game', min_values = float(0.0), max_value = float(50.0), step = float(0.1))
+y = st.slider('Points Per Game', min_value = float(0.0), max_value = float(50.0), step = float(0.1))
 #with st.form(key ='Form1'):
     #with st.sidebar:
         #points_range = list(np.arange(0.0, 50.5, 0.5))
