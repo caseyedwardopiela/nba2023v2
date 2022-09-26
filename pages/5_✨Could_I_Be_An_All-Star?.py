@@ -50,13 +50,7 @@ x_pred = np.array(float(points), float(rebounds, float(assists), float(steals), 
 
 
 # Random Forest
-rf_allstar = RandomForestClassifier(n_estimators=200, criterion='gini', \
-                                max_depth=20, min_samples_split=2, min_samples_leaf=1, \
-                                min_weight_fraction_leaf=0.0, max_features=1.0, \
-                                max_leaf_nodes=None, min_impurity_decrease=0.0, \
-                                bootstrap=True, oob_score=False, n_jobs=-1, \
-                                random_state=None, verbose=0, warm_start=False, \
-                                ccp_alpha=0.0, max_samples=None)
+rf_allstar = RandomForestClassifier()
 
 rf_allstar.fit(x, y)
 
@@ -64,7 +58,7 @@ rf_allstar_results = rf_allstar.predict_proba(x_pred)
 rf_allstar_results = [i[1] for i in rf_allstar_results]
 
 # XGBoost
-xgb_allstar = xgb.XGBClassifier(gamma=10, learning_rate=0.1, max_delta_step=0, max_depth=50, objective='binary:logistic')
+xgb_allstar = xgb.XGBClassifier()
 
 xgb_allstar.fit(x, y)
 
