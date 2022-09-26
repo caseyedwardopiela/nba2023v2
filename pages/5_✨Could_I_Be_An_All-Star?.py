@@ -22,7 +22,6 @@ to make the All-Star game based on your own beliefs.
 # User Input
 with st.form(key ='Form1'):
     with st.sidebar:
-        points_range = list(np.arange(0.0, 50.5, 0.5))
         points = st.slider('Points Per Game', min_value = float(0.0), max_value = float(50.0), step = float(0.1))
         rebounds = st.slider('Rebounds Per Game', min_value = float(0.0), max_value = float(20.0), step = float(0.1))
         assists = st.slider('Assists Per Game', min_value = float(0.0), max_value = float(20.0), step = float(0.1))     
@@ -44,7 +43,7 @@ output_column = 'Allstar'
 # Run Models
 y = list(training[output_column])
 x = training.loc[:,training_columns]
-
+st.write(points)
 x_pred = np.array(float(points), float(rebounds, float(assists), float(steals), float(blocks), float(record))
 
 
