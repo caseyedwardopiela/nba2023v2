@@ -43,8 +43,6 @@ output_column = 'Allstar'
 # Run Models
 y = list(training[output_column])
 x = training.loc[:,training_columns]
-st.write(points)
-#x_pred = np.array(float(points), float(rebounds, float(assists), float(steals), float(blocks), float(record))
 
 df_temp = pd.DataFrame({'Points': [points], 'Rebounds': [rebounds], 'Assists': [assists], 'Steals': [steals], 'Blocks': [blocks], 'Record': [record]})
 
