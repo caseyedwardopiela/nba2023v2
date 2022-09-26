@@ -9,8 +9,9 @@ allstar_data = pd.read_csv('Data/raw_data_for_allstars.csv').drop(['Unnamed: 0']
 st.title('Team Standings Predictions')
 
 st.markdown("""
-Based on player personnel and my best educated guess, expected standings for both conferences have been assigned to help in calculations
-on subsequent pages.
+Are you thinking these predictions might be off? Maybe you were wondering how likely your MyCareer player in NBA 2k23
+is to be an All-star. You can input your own stats here for your favorite player to see how likely he is
+to make the All-star game based on your own beliefs.
 """)
 
 st.dataframe(allstar_data)
