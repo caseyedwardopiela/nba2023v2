@@ -27,3 +27,4 @@ with st.form(key ='Form1'):
         record = st.slider('Team Record', min_value = float(0.0), max_value = float(1), step = float(0.05))
         submitted = st.form_submit_button(label = 'Determine All-Star Likelihood')
 
+st.write(record)
