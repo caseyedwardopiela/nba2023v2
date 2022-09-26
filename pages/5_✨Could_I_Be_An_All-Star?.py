@@ -15,15 +15,15 @@ to make the All-Star game based on your own beliefs.
 """)
 
 st.dataframe(allstar_data)
-
-with st.form(key ='Form1'):
-    with st.sidebar:
-        points_range = list(np.arange(0.0, 50.5, 0.5))
-        points = st.select_slider('Points Per Game', options = point_range, value = 15)
-        assists = st.number_input('Assists Per Game', 100)
-        rebounds = st.number_input('Rebounds Per Game', 100)
-        steals = st.number_input('Steals Per Game', 100)
-        blocks = st.number_input('Blocks Per Game', 100)
-        record = st.number_input('Team Record', 100)
-        submitted = st.form_submit_button(label = 'Determine All-Star Likelihood')
+y = st.slider('Points Per Game', min_values = 0.0, max_value = 50.0, step = 0.1)
+#with st.form(key ='Form1'):
+    #with st.sidebar:
+        #points_range = list(np.arange(0.0, 50.5, 0.5))
+        #points = st.select_slider('Points Per Game', options = point_range, value = 15)
+        #assists = st.number_input('Assists Per Game', 100)
+        #rebounds = st.number_input('Rebounds Per Game', 100)
+        #steals = st.number_input('Steals Per Game', 100)
+        #blocks = st.number_input('Blocks Per Game', 100)
+        #record = st.number_input('Team Record', 100)
+        #submitted = st.form_submit_button(label = 'Determine All-Star Likelihood')
 
