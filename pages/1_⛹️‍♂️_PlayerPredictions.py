@@ -6,13 +6,12 @@ import numpy as np
 
 df = pd.read_csv('Data/v1_2023_player_predictions.csv').drop(['Unnamed: 0'], axis = 1).sort_values('Fantasy Score', ascending = False)
  
-st.title('2022-2023 NBA Fantasy Score Predictions')
+st.title('Individual Player Stat Predictions')
 
 st.markdown("""
-This app pulls historical data from Basketball-Reference.com, including college, international, and regular season stats. After compiling everything,
-it runs a combination of several machine learning algorithms to predict all of the traditional stats for each player this coming season. 
+Three classes of algorithms are used to predict traditional stats and related percentages. Assigned class is dependent on whether a player is a 
+rookie, second year player, or multi-year veteran. 
 
-##### Last Updated: 20 September 2022
 """)
 
 st.sidebar.header('User Input Selection')
