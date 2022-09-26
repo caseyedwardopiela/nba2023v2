@@ -46,14 +46,14 @@ x = training.loc[:,training_columns]
 st.write(points)
 #x_pred = np.array(float(points), float(rebounds, float(assists), float(steals), float(blocks), float(record))
 
-
+df_temp = pd.DataFrame({'Points': [points], 'Rebounds': [rebounds], 'Assists': [assists], 'Steals': [steals], 'Blocks': [blocks], 'Record': [record]})
 
 # Random Forest
 rf_allstar = RandomForestClassifier()
 
 rf_allstar.fit(x, y)
 
-rf_allstar_results = rf_allstar.predict_proba(x_pred)
+rf_allstar_results = rf_allstar.predict_proba(df_temp)
 rf_allstar_results = [i[1] for i in rf_allstar_results]
 
 # XGBoost
@@ -61,7 +61,7 @@ xgb_allstar = xgb.XGBClassifier()
 
 xgb_allstar.fit(x, y)
 
-xgb_allstar_results = xgb_allstar.predict_proba(x_pred)
+xgb_allstar_results = xgb_allstar.predict_proba(df_temp)
 xgb_allstar_results = [i[1] for i in xgb_allstar_results]
 
 # Logistic
@@ -69,7 +69,7 @@ logistic_allstar = LogisticRegression()
 
 logistic_allstar.fit(x, y)
 
-logistic_allstar_results = logistic_allstar.predict_proba(x_pred)
+logistic_allstar_results = logistic_allstar.predict_proba(df_temp)
 logistic_allstar_results = [i[1] for i in logistic_allstar_results]
 
 allstar_prediction = round((rf_allstar_results + xgb_allstar_results + logistic_allstar_results) / 3, 3)
