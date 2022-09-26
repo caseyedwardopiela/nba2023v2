@@ -45,7 +45,7 @@ output_column = 'Allstar'
 y = list(training[output_column])
 x = training.loc[:,training_columns]
 
-x_pred = [points, rebounds, assists, steals, blocks, record]
+x_pred = np.array(points, rebounds, assists, steals, blocks, record)
 
 
 
