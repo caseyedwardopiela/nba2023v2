@@ -15,8 +15,10 @@ Each conference is only allowed 12 players; however, replacements can be made in
 and their respective probabilities are shown on this page.
 """)
 
-rows = st.columns(2)
-rows[0].markdown("### Western Conference")
-rows[0].dataframe(west_stars)
-rows[1].markdown("### Eastern Conference")
-rows[1].dataframe(east_stars)
+#rows = st.columns(2)
+#rows[0].markdown("### Western Conference")
+#rows[0].dataframe(west_stars)
+#rows[1].markdown("### Eastern Conference")
+#rows[1].dataframe(east_stars)
+st.dataframe(west_stars)
+st.dataframe(east_stars)
