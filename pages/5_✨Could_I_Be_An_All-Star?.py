@@ -15,15 +15,15 @@ to make the All-Star game based on your own beliefs.
 """)
 
 st.dataframe(allstar_data)
-y = st.slider('Points Per Game', min_value = float(0.0), max_value = float(50.0), step = float(0.1))
-#with st.form(key ='Form1'):
-    #with st.sidebar:
-        #points_range = list(np.arange(0.0, 50.5, 0.5))
-        #points = st.select_slider('Points Per Game', options = point_range, value = 15)
-        #assists = st.number_input('Assists Per Game', 100)
-        #rebounds = st.number_input('Rebounds Per Game', 100)
-        #steals = st.number_input('Steals Per Game', 100)
-        #blocks = st.number_input('Blocks Per Game', 100)
-        #record = st.number_input('Team Record', 100)
-        #submitted = st.form_submit_button(label = 'Determine All-Star Likelihood')
+ 
+with st.form(key ='Form1'):
+    with st.sidebar:
+        points_range = list(np.arange(0.0, 50.5, 0.5))
+        points = st.slider('Points Per Game', min_value = float(0.0), max_value = float(50.0), step = float(0.1))
+        assists = st.slider('Assists Per Game', min_value = float(0.0), max_value = float(20.0), step = float(0.1))
+        rebounds = st.slider('Rebounds Per Game', min_value = float(0.0), max_value = float(20.0), step = float(0.1))
+        steals = st.slider('Steals Per Game', min_value = float(0.0), max_value = float(5.0), step = float(0.1))
+        blocks = st.slider('Blocks Per Game', min_value = float(0.0), max_value = float(5.0), step = float(0.1))
+        record = st.slider('Team Record', min_value = float(0.0), max_value = float(1), step = float(0.05))
+        submitted = st.form_submit_button(label = 'Determine All-Star Likelihood')
 
