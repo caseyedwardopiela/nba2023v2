@@ -4,18 +4,23 @@ import pandas as pd
 #import matplotlib.pyplot as plt
 import numpy as np
 
-east = pd.read_csv('Data/v1_2023_east_predictions.csv').drop(['Unnamed: 0'], axis = 1)
-west = pd.read_csv('Data/v1_2023_west_predictions.csv').drop(['Unnamed: 0'], axis = 1)
+mvps = pd.read_csv('Data/v1_mvp_predictions.csv').drop(['Unnamed: 0'], axis = 1)
+dpoy = pd.read_csv('Data/v1_dpoy_predictions.csv').drop(['Unnamed: 0'], axis = 1)
+roys = pd.read_csv('Data/v1_roy_predictions.csv').drop(['Unnamed: 0'], axis = 1)
  
 st.title('Team Standings Predictions')
 
 st.markdown("""
-Based on player personnel and my best educated guess, expected standings for both conferences have been assigned to help in calculations
-on subsequent pages.
+Additional models have been run to assign each player's likelihood of winning the league's Most Valuable Player (MVP), Defensive Player of the Year (DPOY),
+and Rookie of the Year (ROY) awards.
 """)
 
-rows = st.columns(2)
-rows[0].markdown("### Western Conference")
-rows[0].dataframe(west)
-rows[1].markdown("### Eastern Conference")
-rows[1].dataframe(east)
+award_options = ['MVP', 'DPOY', 'ROY']
+selected_award = st.sidebar.selectbox('For which award would you like to see the most likely players to win it?', award_options) 
+
+if selected_award == 'MVP':
+  st.dataframe(mvps)
+elif selected_award == 'DPOY':
+  st.dataframe(dpoy)
+else:
+  st.dataframe(roys)
