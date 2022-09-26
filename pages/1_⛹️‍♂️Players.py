@@ -14,7 +14,7 @@ rookie, second year player, or multi-year veteran.
 
 """)
 
-st.sidebar.header('User Input Selection')
+st.sidebar.header('User Selection')
 
 # Sidebar - Name Selection
 sorted_players_unique = list(df['Player Name'].unique())
