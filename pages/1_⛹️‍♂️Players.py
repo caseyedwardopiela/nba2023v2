@@ -49,25 +49,25 @@ if selected_player == 'All Players':
 else:
    selected_team = 'All Teams'
    selected_position = 'All Positions'
-   df_selected = df[df['Player Name'] == selected_player]
+   df_selected = df[df['Name'] == selected_player]
 
 # Filtering data - Team
 if selected_team == 'All Teams':
     df_selected = df_selected
 else:
-    df_selected = df_selected[df_selected['Player Team'] == selected_team]
+    df_selected = df_selected[df_selected['Team'] == selected_team]
   
 # Filtering data - Position
 if selected_position == 'All Positions':
     df_selected = df_selected
 else:
-    df_selected = df_selected[df_selected['Player Position'] == selected_position]
+    df_selected = df_selected[df_selected['Position'] == selected_position]
   
 # Filtering data - Stat
 if selected_stat == 'All Stats':
     df_selected = df_selected
 else:
-    stats_list = ['Player Name', 'Player Team', 'Player Position', selected_stat]
+    stats_list = ['Name', 'Team', 'Position', selected_stat]
     df_selected = df_selected.loc[:,stats_list].sort_values(selected_stat, ascending = False)
 
 
