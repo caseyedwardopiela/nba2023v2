@@ -4,7 +4,8 @@ import pandas as pd
 #import matplotlib.pyplot as plt
 import numpy as np
 
-df2 = pd.read_csv('Data/v1_2023_east_predictions.csv').drop(['Unnamed: 0'], axis = 1)
+east = pd.read_csv('Data/v1_2023_east_predictions.csv').drop(['Unnamed: 0'], axis = 1)
+west = pd.read_csv('Data/v1_2023_west_predictions.csv').drop(['Unnamed: 0'], axis = 1)
  
 st.title('Team Standings Predictions')
 
@@ -13,4 +14,5 @@ Based on player personnel and my best educated guess, expected standings for bot
 on subsequent pages.
 """)
 
-st.dataframe(df2)
+st.dataframe(west)
+st.dataframe(east)
