@@ -35,7 +35,7 @@ with st.form(key ='Form1'):
 # Modeling
 
 # Separate Data
-training = award_raw_data[award_raw_data['Season'] < 2023]
+training = allstar_data[allstar_data['Season'] < 2023]
 
 # Determine which columns to use
 training_columns = list(training.columns)[3:9]
