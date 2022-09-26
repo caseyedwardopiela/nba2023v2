@@ -14,5 +14,8 @@ Based on player personnel and my best educated guess, expected standings for bot
 on subsequent pages.
 """)
 
-st.dataframe(west)
-st.dataframe(east)
+rows = st.columns(2)
+rows[0].markdown("### Western Conference")
+rows[0].dataframe(west)
+rows[1].markdown("### Eastern Conference")
+rows[1].dataframe(east)
