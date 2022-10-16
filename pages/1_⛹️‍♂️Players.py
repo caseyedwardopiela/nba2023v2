@@ -20,7 +20,7 @@ st.sidebar.header('User Selection')
 sorted_players_unique = list(df['Name'].unique())
 sorted_players_unique = sorted(sorted_players_unique)
 sorted_players_unique.insert(0,'All Players')
-selected_player = st.sidebar.multiselect('Which player would you like to see?',
+selected_player = st.sidebar.multiselect('Which player would you like to see or which players have been selected in your draft?',
     sorted_players_unique) 
 
 # Sidebar - Team Selection
