@@ -49,7 +49,7 @@ if 'All Players' in selected_player:
 else:
    selected_team = 'All Teams'
    selected_position = 'All Positions'
-   df_selected = df[df['Name'].isin(selected_player)]
+   df_selected = df[~df['Name'].isin(selected_player)]
 
 # Filtering data - Team
 if selected_team == 'All Teams':
