@@ -27,7 +27,7 @@ selected_player = st.sidebar.selectbox('Which player would you like to see?',
 sorted_team_unique = list(df['Team'].unique())
 sorted_team_unique = sorted(sorted_team_unique)
 sorted_team_unique.insert(0,'All Teams')
-selected_team = st.sidebar.selectbox('Which team would you like to see?',
+selected_team = st.sidebar.multiselect('Which team would you like to see?',
     sorted_team_unique)
 
 # Sidebar - Position Selection
