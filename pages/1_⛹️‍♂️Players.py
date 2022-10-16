@@ -20,14 +20,14 @@ st.sidebar.header('User Selection')
 sorted_players_unique = list(df['Name'].unique())
 sorted_players_unique = sorted(sorted_players_unique)
 sorted_players_unique.insert(0,'All Players')
-selected_player = st.sidebar.selectbox('Which player would you like to see?',
+selected_player = st.sidebar.multiselect('Which player would you like to see?',
     sorted_players_unique) 
 
 # Sidebar - Team Selection
 sorted_team_unique = list(df['Team'].unique())
 sorted_team_unique = sorted(sorted_team_unique)
 sorted_team_unique.insert(0,'All Teams')
-selected_team = st.sidebar.multiselect('Which team would you like to see?',
+selected_team = st.sidebar.selectbox('Which team would you like to see?',
     sorted_team_unique)
 
 # Sidebar - Position Selection
@@ -44,12 +44,12 @@ selected_stat = st.sidebar.selectbox('Which stat would you like to see?',
     sorted_stat_unique) 
 
 # Filtering data - Name
-if selected_player == 'All Players':
+if 'All Players' in selected_player:
     df_selected = df
 else:
    selected_team = 'All Teams'
    selected_position = 'All Positions'
-   df_selected = df[df['Name'] == selected_player]
+   df_selected = df[df['Name'].isin(selected_player)]
 
 # Filtering data - Team
 if selected_team == 'All Teams':
